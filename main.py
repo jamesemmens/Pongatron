@@ -179,6 +179,31 @@ def multi_menu():
         pygame.display.update()
         clock.tick(15)
 
+def multi_gamesearch():
+    gamesearch = True
+
+    while gamesearch:
+        for event in pygame.event.get():
+            print(event)
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+        gameDisplay.fill(white)
+        largeText = pygame.font.Font('../Fonts/freesansbold.ttf',115)
+        TextSurf, TextRect = text_objects("Pongatron", largeText)
+        TextRect.center = ((display_width/2),(display_height/2))
+        gameDisplay.blit(TextSurf,TextRect)
+
+        button("Create a game",150,450,200,50,green,bright_green,multi_gamecreate)
+        button("Join a game", 550,450,200,50, green,bright_green,multi_gamesearch)
+        button("Back", 0,50,200,50,red,bright_red,game_intro)
+        pygame.display.update()
+        clock.tick(15)
+
+
+def multi_gamecreate():
+
+
 def game_loop():
     pygame.mixer.music.play(-1 )
 
